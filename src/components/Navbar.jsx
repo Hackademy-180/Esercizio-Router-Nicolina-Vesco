@@ -1,6 +1,9 @@
-import {Link} from "react-router";
+import { useContext } from "react";
+import { Link } from "react-router";
+import { UserContext } from "../context/UserContext";
 
 function Navbar() {
+    const { user, logout } = useContext(UserContext);
     return (
         <nav className="navcustom">
             <div className="link">
@@ -8,7 +11,16 @@ function Navbar() {
                 <Link to="/" className="nav-link">Home</Link>
                 <Link to="/posts" className="nav-link">Info</Link>
                 <Link to="/login" className="nav-link">Login</Link>
-                <Link to="/register" className="nav-link">Registrati</Link>
+
+                {(!user && (
+                    <Link to="/register" className="nav-link">Registrati</Link>
+
+                )) || (
+                        <>
+                            <p className="nav-link">{user.name}</p>
+                            <button onClick={logout}>Logout</button>
+                        </>
+                    )}
 
 
 

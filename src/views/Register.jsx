@@ -1,31 +1,70 @@
+import { useContext, useState } from "react"
+import { UserContext } from "../context/UserContext"
+import { useNavigate } from "react-router";
+
 export default function Register() {
+
+    const { register } = useContext(UserContext);
+    const [userName, setUserName] = useState();
+    const [userSurname, setUserSurname] = useState();
+    const [userEmail, setUserEmail] = useState();
+    const [userPassword, setUserPassword] = useState();
+    const [userConfirmPassword, setUserConfirmPassword] = useState();
+
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        if (e.target.id === 'name') {
+            setUserName(e.target.value);
+        } else if (e.target.id === 'surname') {
+            setUserSurname(e.target.value);
+        } else if (e.target.id === 'email') {
+            setUserEmail(e.target.value);
+        } else if (e.target.id === 'password') {
+            setUserPassword(e.target.value);
+        } else if (e.target.id === 'confirm_password') {
+            setUserConfirmPassword(e.target.value);
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (userName, userSurname, userEmail, userPassword, userConfirmPassword) {
+            register({ name: userName, surname: userSurname, email: userEmail, password: userPassword, confirm_password: userConfirmPassword })
+        }
+        navigate('/')
+    }
+
     return (
         <>
             <h1>Pagina Registrazione</h1>
-            <form>
+            <form onSubmit={handleSubmit} className="form">
                 <div className="registerPage">
                     <div>
-                        <label htmlForfor="name" className="">Nome: </label>
-                        <input type="text" className="" id="name"></input>
+                        <label htmlFor="name" className=""></label>
+                        <input type="text" className="form_input" id="name" placeholder="Nome:" onChange={handleChange}></input>
                     </div>
                     <div>
-                        <label htmlFor="surname" class="">Cognome: </label>
-                        <input type="text" className="" id="surname"></input>
+                        <label htmlFor="surname" className=""></label>
+                        <input type="text" className="form_input" id="surname" placeholder="Cognome: " onChange={handleChange}></input>
                     </div>
                     <div>
-                        <label htmlForfor="email" className="form-label">Email: </label>
-                        <input type="email" className="" id="email" placeholder="mario@rossi.com"></input>
+                        <label htmlFor="email" className="form-label"></label>
+                        <input type="email" className="form_input" id="email" placeholder="mario@rossi.com" onChange={handleChange}></input>
                     </div>
                     <div>
-                        <label htmlForfor="password" class="">Password: </label>
-                        <input type="password" id="password" class=""></input>
+                        <label htmlFor="password" className=""></label>
+                        <input type="password" id="password" className="form_input" placeholder="Password" onChange={handleChange}></input>
                     </div>
                     <div>
-                        <label htmlForfor="confirm_password" class="">Conferma password: </label>
-                        <input type="password" id="confirm_password" class=""></input>
+                        <label htmlFor="confirm_password" className=""></label>
+                        <input type="password" id="confirm_password" className="form_input" placeholder="Conferma Password" onChange={handleChange}></input>
+                    </div>
+                    <div>
+                        <button id="form_btn">Registrati</button>
                     </div>
                 </div>
-            </form>
+            </form >
         </>
     )
 }

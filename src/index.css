@@ -28,3 +28,27 @@
    flex-direction: column;
    gap:10px;
 }
+
+#form_btn{
+    width:30%;
+    height:30px;
+    border-radius:20px;
+    border: 1px solid #d3d3d3
+}
+.registerPage{
+    display:flex;
+    justify-content: center;
+    border:1px solid #d3d3d3;
+    width: 30%;
+    height:200px;
+    border-radius:20px;
+}
+.form_input{
+    height: 25px;
+    border-radius:10px;
+    border:1px solid #d3d3d3;
+}
+.form{
+    display:flex;
+    justify-content: center;;
+}

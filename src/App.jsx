@@ -1,14 +1,20 @@
 // import { useState } from 'react'
 import './App.css'
-import {RouterProvider} from "react-router-dom"
+import { RouterProvider } from "react-router-dom"
 import router from "./routing/router"
+import { ContextProvider } from './context/context'
+import { UserContextProvider } from './context/UserContext'
 
 function App() {
- 
+
 
   return (
     <>
-      <RouterProvider router={router}/>
+      <ContextProvider>
+        <UserContextProvider>
+          <RouterProvider router={router} />
+        </UserContextProvider>
+      </ContextProvider>
     </>
   )
 }
