@@ -9,7 +9,6 @@ function Navbar() {
             <div className="link">
 
                 <Link to="/" className="nav-link">Home</Link>
-                <Link to="/posts" className="nav-link">Info</Link>
                 <Link to="/login" className="nav-link">Login</Link>
 
                 {(!user && (
@@ -17,6 +16,7 @@ function Navbar() {
 
                 )) || (
                         <>
+                            <Link to="/posts" className="nav-link">Info</Link>
                             <p className="nav-link">{user.name}</p>
                             <button onClick={logout}>Logout</button>
                         </>
