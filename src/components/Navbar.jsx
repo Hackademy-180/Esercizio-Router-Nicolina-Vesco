@@ -19,7 +19,7 @@ function Navbar() {
                 )) || (
                         <>
                             <Link to="/posts" className="nav-link text-black hover:text-white">Info</Link>
-                            <p className="nav-link">{user.name}</p>
+                            <p className="nav-link">Benvenut* {user.name}</p>
                             <button onClick={logout}>Logout</button>
                         </>
                     )}
