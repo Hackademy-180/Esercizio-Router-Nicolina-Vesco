@@ -8,17 +8,17 @@ function Navbar() {
     const { user, logout } = useContext(UserContext);
     return (
         <nav ref={scrolled} className={scrollY > 0 ? 'dark_navbar' : 'navcustom'}>
-            <div className="link">
+            <div className="link h-[70px] flex place-content-evenly items-center">
 
-                <Link to="/" className="nav-link">Home</Link>
-                <Link to="/login" className="nav-link">Login</Link>
+                <Link to="/" className="nav-link text-black hover:text-white">Home</Link>
+                <Link to="/login" className="nav-link text-black hover:text-white">Login</Link>
 
                 {(!user && (
-                    <Link to="/register" className="nav-link">Registrati</Link>
+                    <Link to="/register" className="nav-link text-black hover:text-white">Registrati</Link>
 
                 )) || (
                         <>
-                            <Link to="/posts" className="nav-link">Info</Link>
+                            <Link to="/posts" className="nav-link text-black hover:text-white">Info</Link>
                             <p className="nav-link">{user.name}</p>
                             <button onClick={logout}>Logout</button>
                         </>
