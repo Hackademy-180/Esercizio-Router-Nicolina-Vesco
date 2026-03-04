@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { Link } from "react-router";
 import { UserContext } from "../context/UserContext";
+import useScroll from "../Hooks/useScroll";
 
 function Navbar() {
+    const [scrolled, scrollY] =useScroll();
     const { user, logout } = useContext(UserContext);
     return (
-        <nav className="navcustom">
+        <nav ref={scrolled} className={scrollY > 0 ? 'dark_navbar' : 'navcustom'}>
             <div className="link">
 
                 <Link to="/" className="nav-link">Home</Link>
